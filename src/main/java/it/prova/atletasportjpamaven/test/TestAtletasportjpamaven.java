@@ -17,6 +17,8 @@ public class TestAtletasportjpamaven {
 
 		try {
 
+//			=========================AGGIUNGERE UN METODO ======================
+			
 			// -------------------------TEST----------------
 //			System.out.println(atletaServiceInstance.lista());
 
@@ -52,9 +54,10 @@ public class TestAtletasportjpamaven {
 	// --------------------------------------
 	private static void testLeggi(AtletaService atletaServiceInstance) throws Exception {
 		System.out.println("...................... INIZIO TEST ..................");
-
+		
+		
 		Long idDaLeggere = 1l;
-
+		
 		System.out.println(atletaServiceInstance.leggi(idDaLeggere));
 
 		System.out.println("...................... FINE TEST ..................");
@@ -76,11 +79,16 @@ public class TestAtletasportjpamaven {
 	private static void testInserisci(AtletaService atletaServiceInstance) throws Exception {
 		System.out.println("...................... INIZIO TEST ..................");
 
+
+		int misuraDiControllo = atletaServiceInstance.lista().size();
 		Atleta daInserire = new Atleta();
 		daInserire.setNome("aaaaaaaaaaa");
 
 		atletaServiceInstance.inserisci(daInserire);
-
+		
+		if(atletaServiceInstance.lista().size() != misuraDiControllo+1)
+			throw new RuntimeException("TEST FAILED: ERRORE NELL'INSERIMENTO");
+		
 		System.out.println(atletaServiceInstance.lista());
 
 		System.out.println("...................... FINE TEST ..................");
@@ -90,9 +98,14 @@ public class TestAtletasportjpamaven {
 		System.out.println("...................... INIZIO TEST ..................");
 
 		List<Atleta> result = atletaServiceInstance.lista();
+		
+		
 		Atleta daRimuovere = result.get(result.size() - 1);
 
 		atletaServiceInstance.rimuovi(daRimuovere);
+		
+		if(result.size()-1 != atletaServiceInstance.lista().size())
+			throw new RuntimeException("TEST FAILED: ERRORE NELLA RIMOZIONE");
 
 		System.out.println(atletaServiceInstance.lista());
 
@@ -130,11 +143,17 @@ public class TestAtletasportjpamaven {
 	private static void testInserisci(SportService sportServiceInstance)throws Exception {
 		System.out.println("...................... INIZIO TEST ..................");
 		
+		
+		int indicePerControllo = sportServiceInstance.lista().size();	
+		
 		Sport daInserire = new Sport();
 		
 		daInserire.setDescrizione("aaaaaaaaaaaaaa");
 		
 		sportServiceInstance.inserisci(daInserire);
+		
+		if(indicePerControllo+1 != sportServiceInstance.lista().size())
+			throw new RuntimeException("TEST FAILED: ERRORE NELL'INSERIMENTO");
 		
 		System.out.println(sportServiceInstance.lista());
 		
@@ -145,10 +164,14 @@ public class TestAtletasportjpamaven {
 		
 		List<Sport> result = sportServiceInstance.lista();
 		
+		int indicePerControllo = result.size();
 		Sport daRimuovere = result.get(result.size()-1);
 		
 		sportServiceInstance.rimuovi(daRimuovere);
 		
+		if(indicePerControllo-1 != sportServiceInstance.lista().size())
+			throw new RuntimeException("TEST FAILED: ERRORE NELLA RIMOZIONE");
+			
 		System.out.println(sportServiceInstance.lista());
 		
 		System.out.println("...................... FINE TEST ..................");

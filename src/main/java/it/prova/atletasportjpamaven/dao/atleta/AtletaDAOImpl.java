@@ -50,6 +50,18 @@ public class AtletaDAOImpl implements AtletaDAO{
 			throw new Exception("Problema valore in input");
 		entityManager.remove(entityManager.merge(atletaInstance));
 	}
+	@Override
+	public void disconnectAtletaToSport(Atleta atletaInput) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void deleteAndDisconnectAtleta(Atleta atletaInput) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 
 }

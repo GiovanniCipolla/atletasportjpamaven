@@ -51,4 +51,17 @@ private EntityManager entityManager;
 		
 	}
 
+	@Override
+	public void connectSportToAtleta(Sport sportInput, Atleta atletaInput) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Sport> errorDate(Sport sportInput) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
