@@ -120,4 +120,23 @@ public class SportServiceImpl implements SportService {
 			EntityManagerUtil.closeEntityManager(entityManager);
 		}
 	}
+
+	@Override
+	public List<Sport> erroriNelleDate() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+		try {
+		
+			
+			sportDAO.setEntityManager(entityManager);
+			
+			return sportDAO.errorDate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
 }

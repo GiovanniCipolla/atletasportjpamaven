@@ -8,7 +8,7 @@ import it.prova.atletasportjpamaven.model.Sport;
 
 public interface SportDAO extends IBaseDAO<Sport> {
 
-	public void connectSportToAtleta(Sport sportInput, Atleta atletaInput);
 	
-	public List<Sport> errorDate(Sport sportInput);
+	
+	public List<Sport> errorDate() throws Exception;
 }

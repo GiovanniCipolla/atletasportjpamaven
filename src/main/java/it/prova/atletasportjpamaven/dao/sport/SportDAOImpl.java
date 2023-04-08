@@ -51,16 +51,12 @@ private EntityManager entityManager;
 		
 	}
 
-	@Override
-	public void connectSportToAtleta(Sport sportInput, Atleta atletaInput) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
-	public List<Sport> errorDate(Sport sportInput) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Sport> errorDate() throws Exception {
+		
+		return entityManager.createQuery("from Sport s where s.dataInizio>s.dataFine",Sport.class).getResultList();
 	}
 
 

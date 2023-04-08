@@ -30,7 +30,6 @@ public class Atleta {
 	private String codice;
 	@Column(name = "numeromedaglievinte")
 	private int numeroMedaglieVinte;
-
 	@ManyToMany
 	@JoinTable(name = "atleta_sport", joinColumns = @JoinColumn(name = "atleta_id", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "sport_id", referencedColumnName = "ID"))
 	private Set<Sport> sports;

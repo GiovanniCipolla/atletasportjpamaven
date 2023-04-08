@@ -23,7 +23,5 @@ public interface SportService {
 
 	public void rimuovi(Sport sportInstance) throws Exception;
 
-	public void connettiSportAAtleta(Sport sportInput, Atleta atletaInput) throws Exception;
-
-	public List<Sport> erroriNelleDate(Sport sportInput) throws Exception;
+	public List<Sport> erroriNelleDate() throws Exception;
 }

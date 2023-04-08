@@ -5,6 +5,7 @@ import java.util.List;
 import it.prova.atletasportjpamaven.dao.atleta.AtletaDAO;
 import it.prova.atletasportjpamaven.dao.sport.SportDAO;
 import it.prova.atletasportjpamaven.model.Atleta;
+import it.prova.atletasportjpamaven.model.Sport;
 
 public interface AtletaService {
 
@@ -21,8 +22,12 @@ public interface AtletaService {
 	public void inserisci(Atleta atletaInstance) throws Exception;
 
 	public void rimuovi(Atleta atletaInstance) throws Exception;
+	
+	public void connettiSportAATleta(Atleta atletaInstance,Sport sportInstance)throws Exception;
+	
+	public void scollegaSportDAAtleta(Atleta atletaInstance,Sport sportInstance)throws Exception;
 
-	public void disconnettiAtletaDalloSport(Atleta atletaInput)throws Exception;
+	public void rimuoviEScollegaAtleta(Atleta atletaInstance,Sport sportInstance)throws Exception;
+	
 
-	public void cancellaEDisconnettiAtleta(Atleta atletaInput)throws Exception;
 }
