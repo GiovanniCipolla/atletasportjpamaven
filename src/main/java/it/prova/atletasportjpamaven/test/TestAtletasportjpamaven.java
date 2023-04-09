@@ -44,7 +44,9 @@ public class TestAtletasportjpamaven {
 
 //			testRimuoviEScollegaAtleta(atletaServiceInstance,sportServinceInstance);
 
-//			TestErroriDate(sportServinceInstance);
+//			testErroriDate(sportServinceInstance);
+			
+			testContaMedaglie(atletaServiceInstance);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -248,7 +250,7 @@ public class TestAtletasportjpamaven {
 		System.out.println("...................... FINE TEST ..................");
 	}
 
-	private static void TestErroriDate(SportService sportServiceInstance) throws Exception {
+	private static void testErroriDate(SportService sportServiceInstance) throws Exception {
 		System.out.println("...................... INIZIO TEST ..................");
 		List<Sport> result = sportServiceInstance.erroriNelleDate();
 		if (result.isEmpty())
@@ -258,4 +260,19 @@ public class TestAtletasportjpamaven {
 
 		System.out.println("...................... FINE TEST ..................");
 	}
+	
+	private static int testContaMedaglie(AtletaService atletaServiceInstance) throws Exception {
+		System.out.println("...................... INIZIO TEST ..................");
+		
+		int count =0;
+		
+		 count = atletaServiceInstance.contaNumeroMedaglieSportChiusi();
+		
+		
+		System.out.println(count);
+		System.out.println("...................... FINE TEST ..................");
+		return count;
+	}
+	
+
 }

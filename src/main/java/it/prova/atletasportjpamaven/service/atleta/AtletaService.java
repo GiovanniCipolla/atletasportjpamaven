@@ -29,5 +29,6 @@ public interface AtletaService {
 
 	public void rimuoviEScollegaAtleta(Atleta atletaInstance,Sport sportInstance)throws Exception;
 	
+	public int contaNumeroMedaglieSportChiusi()throws Exception;
 
 }

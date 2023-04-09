@@ -9,7 +9,6 @@ import com.mysql.cj.Query;
 
 import it.prova.atletasportjpamaven.model.Atleta;
 import it.prova.atletasportjpamaven.model.Sport;
-import it.prova.proprietariojpa.model.Automobile;
 
 public class AtletaDAOImpl implements AtletaDAO {
 
@@ -55,22 +54,14 @@ public class AtletaDAOImpl implements AtletaDAO {
 		entityManager.remove(entityManager.merge(atletaInstance));
 	}
 
-	@Override
-	public void disconnectAtletaToSport(Atleta atletaInput) throws Exception {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void deleteAndDisconnectAtleta(Atleta atletaInput) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Long sumNumeroMedaglieVinteInSportChiusi() throws Exception {
-		Query query =  (Query) entityManager.createQuery(
-				"select sum(a.numeroMedaglieVinte) from Atleta a join a.sports s where s.dataFine is not null");
-		return query.getSingleResult();
+	public int sumNumeroMedaglieVinteInSportChiusi() throws Exception {
+		TypedQuery<Long> query = entityManager.createQuery(
+				"SELECT SUM(a.numeroMedaglieVinte) FROM Atleta a JOIN a.sports s WHERE s.dataFine IS NOT NULL",
+				Long.class);
+		Long sum = query.getSingleResult();
+		int result = sum != null ? sum.intValue() : 0;
+		return result;
 	}
 
 }

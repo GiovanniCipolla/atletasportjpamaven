@@ -212,5 +212,21 @@ public class AtletaServiceImpl implements AtletaService {
 		
 	}
 
+	@Override
+	public int contaNumeroMedaglieSportChiusi() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+		try {
+			atletaDAO.setEntityManager(entityManager);
+			
+			return atletaDAO.sumNumeroMedaglieVinteInSportChiusi();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 	
 }
