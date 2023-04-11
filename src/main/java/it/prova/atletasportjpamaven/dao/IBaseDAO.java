@@ -3,7 +3,8 @@ package it.prova.atletasportjpamaven.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-
+//interfaccia da cui erediteremo i metodi principali oer il dao , CRUD
+// e anche inkection , per dare sempre connesione
 public interface IBaseDAO<T> {
 
 	public List<T> list() throws Exception;

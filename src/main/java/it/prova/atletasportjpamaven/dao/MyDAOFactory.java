@@ -5,7 +5,10 @@ import it.prova.atletasportjpamaven.dao.atleta.AtletaDAOImpl;
 import it.prova.atletasportjpamaven.dao.sport.SportDAO;
 import it.prova.atletasportjpamaven.dao.sport.SportDAOImpl;
 
+// pattern factory e singleton 
 public class MyDAOFactory {
+	// per ogni entità dao
+	
 	private static AtletaDAO ATLETA_DAO_INSTANCE = null;
 	private static SportDAO RUOLO_DAO_INSTANCE = null;
 

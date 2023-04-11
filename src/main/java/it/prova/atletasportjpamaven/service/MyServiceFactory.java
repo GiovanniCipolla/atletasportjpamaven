@@ -7,6 +7,7 @@ import it.prova.atletasportjpamaven.service.sport.SportService;
 import it.prova.atletasportjpamaven.service.sport.SportServiceImpl;
 
 public class MyServiceFactory {
+	
 	// rendiamo questo factory SINGLETON
 		private static AtletaService ATLETA_SERVICE_INSTANCE;
 		private static SportService SPORT_SERVICE_INSTANCE;

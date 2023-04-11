@@ -4,11 +4,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+//classe che si occupa della connesione
 public class EntityManagerUtil {
 
 	private static final EntityManagerFactory entityManagerFactory;
 	static {
-		try {
+		try {                                                             //nomeprogetto_unit
 			entityManagerFactory = Persistence.createEntityManagerFactory("atletasportjpamaven_unit");
 
 		} catch (Throwable ex) {
